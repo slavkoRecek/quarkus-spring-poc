@@ -15,6 +15,14 @@ services:
       - POSTGRES_USER=quarkus_test
       - POSTGRES_DB=quarkus_fruit
     restart: unless-stopped
+  redis:
+    image: bitnami/redis:latest
+    ports:
+      - 6379:6379
+    expose:
+      - 6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
   # APP*****************************************
   quarkus-poc:
     build:
